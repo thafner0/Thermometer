@@ -5,11 +5,11 @@ public class ThermoMain {
 
     }
 
-    public String jokeQuestion() {
-        return "A block fell on Isaac Newton's Head. What did he say to laughing his assistant?";
+    public static String jokeQuestion() {
+        return "A block fell on Isaac Newton's Head. What did he say to his laughing assistant?";
     }
 
-    public String jokePunchLine() {
+    public static String jokePunchLine() {
         return "I don't think you understand the gravity of the situation.";
     }
 }
