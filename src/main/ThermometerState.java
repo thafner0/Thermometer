@@ -3,19 +3,15 @@ import java.util.TimerTask;
 
 public class ThermometerState {
     private Boolean on = false;
-
+    private Boolean isIdle = false;
 
     public void doSelfTestSystem(){
         // initialize self test system after power is on
-        if (isOn()) {
-            SelfTestSystem.checkAll();
+        if (isOn() == true) {
             System.out.println("WAIT");
-
-            // if power is on and self test system passes tests return self test system passed
-            if (SelfTestSystem.checkAll(true)) {
-                return selfTestSystemPassed();
-            } else if (SelfTestSystem.checkAll(false)) { // retuns self test system failed
-                return selfTestSystemFailed();
+            // if SeslfTestSyste checkAll() returns false, power off thermometer
+            if(SelfTestSystem.checkAll() == false) {
+                powerOff();
             }
         }
     }
@@ -23,26 +19,25 @@ public class ThermometerState {
     // thermometer is on and after 120 seconds of being idle, initiate power off
     public Boolean isIdle() {
 
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
+        long currentTime = System.currentTimeMillis();
+        long lastUpdatedTime = TemperatureRead.getTime();
 
-            public void run() {
-                powerOff();
-            }
+        if (currentTime >= lastUpdatedTime + 120000) {
+            isIdle = true;
+            powerOff();
+            return true;
+        } else {
+            return false;
         }
 
-    }
-
-    public String selfTestSystemFailed() {
-        // low battery alert if battery check false
-        // temp error alert if temp check false
-        // display check false powerOff
-        //
-    }
-
-    public String selfTestSystemPassed() {
-        // two beeps
-        // batter level displayed
+//        Timer timer = new Timer();
+//        TimerTask timerTask = new TimerTask() {
+//            public void run() {
+//                powerOff();
+//            }
+//        }
+//
+//        return timerTask.schedule(task, 120000);
     }
 
     public boolean isOn() {
@@ -54,15 +49,10 @@ public class ThermometerState {
         doSelfTestSystem();
     }
 
-    public boolean isOff() {
-        return off;
-    }
-
-    // turns thermometer off and plays 1 short beep to indicate sucessfully turned off
+    // turns thermometer off and short beep to indicate sucessfully turned off
     public void powerOff() {
         on = false;
-
-        // TO DO: implement beep
+        System.out.println("*beep*");
     }
 
 
