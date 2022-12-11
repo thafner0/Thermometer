@@ -1,17 +1,29 @@
 import java.lang.Thread;
 
 public class DisplayScreen {
-    private int tempDisplay = 0;
+    private double tempDisplay = 0;
     private int batt = 0;
+    public boolean isCelsius = false;
+    private String str = "";
 
-    public DisplayScreen(int temp){
+    public DisplayScreen(double temp){
         tempDisplay = this.temp;
         batt = SelfTestSystem.getBattLevel();
     }
 
     public void updateScreen(){
-        System.out.println("temp is: "+tempDisplay);
+        if(isCelsius == true){
+            str = "C";
+        }else{
+            str = "F";
+        }
+        System.out.println("temp is: "+tempDisplay+" "+str);
         System.out.println("batt is: "+batt);
+    }
+
+    public void convertToCelsius(){
+        tempDisplay = ((tempDisplay - 32)*5)/9;
+        isCelsius = true;
     }
 
     public void beginIdle(){
