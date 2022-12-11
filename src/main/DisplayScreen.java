@@ -4,7 +4,7 @@ public class DisplayScreen {
     public boolean isCelsius = false;
     private String tempType = "";
 
-    public DisplayScreen(double temp){
+    public void DisplayScreen(double temp){
         tempDisplay = this.temp;
         batt = SelfTestSystem.getBattLevel();
     }

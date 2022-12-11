@@ -4,7 +4,6 @@ import java.lang.Thread;
 
 public class ThermometerState {
     private Boolean on = false;
-    private Boolean isIdle = false;
 
     public void doSelfTestSystem(){
         // initialize self test system after power is on
