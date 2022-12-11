@@ -2,7 +2,7 @@ public class DisplayScreen {
     private double tempDisplay = 0;
     private int batt = 0;
     public boolean isCelsius = false;
-    private String str = "";
+    private String tempType = "";
 
     public DisplayScreen(double temp){
         tempDisplay = this.temp;
@@ -11,11 +11,11 @@ public class DisplayScreen {
 
     public void displayTemp(){
         if(isCelsius == true){
-            str = "C";
+            tempType = "C";
         }else{
-            str = "F";
+            tempType = "F";
         }
-        System.out.println("temp is: "+tempDisplay+" "+str);
+        System.out.println("temp is: "+tempDisplay+" "+tempType);
         System.out.println("batt is: "+batt);
     }
 
