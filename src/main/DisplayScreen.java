@@ -1,3 +1,5 @@
+package main;
+
 public class DisplayScreen {
     private double tempDisplay = 0;
     private int batt = 0;
@@ -5,8 +7,8 @@ public class DisplayScreen {
     private String tempType = "";
 
     public void DisplayScreen(double temp){
-        tempDisplay = this.temp;
-        batt = SelfTestSystem.getBattLevel();
+        tempDisplay = temp;
+        batt = new SelfTestSystem().getBattLevel();
     }
 
     public void displayTemp(){
