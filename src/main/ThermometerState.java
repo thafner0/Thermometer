@@ -1,9 +1,11 @@
 package main;
 
 import java.lang.Thread;
+import java.util.Scanner;
 
 public class ThermometerState {
     private Boolean on = false;
+    private Scanner userInput = new Scanner(System.in);
 
     public void doSelfTestSystem(){
         // initialize self test system after power is on
