@@ -1,12 +1,14 @@
+package main;
+
 public class DisplayScreen {
     private double tempDisplay = 0;
     private int batt = 0;
     public boolean isCelsius = false;
     private String tempType = "";
 
-    public void DisplayScreen(double temp){
-        tempDisplay = this.temp;
-        batt = SelfTestSystem.getBattLevel();
+    public DisplayScreen(double temp) {
+        tempDisplay = temp;
+        batt = new SelfTestSystem().getBattLevel();
     }
 
     public void displayTemp(){
