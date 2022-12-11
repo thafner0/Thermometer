@@ -1,3 +1,5 @@
+import java.lang.Thread;
+
 public class DisplayScreen {
     private int tempDisplay = 0;
     private int batt = 0;
