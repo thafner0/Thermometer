@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class ThermometerState {
     private Boolean on = false;
-    private Scanner userInput = new Scanner(System.in);
+    private final Scanner userInput = new Scanner(System.in);
 
     public void doSelfTestSystem(){
         // initialize self test system after power is on
-        if (isOn() == true) {
+        if (isOn()) {
             System.out.println("WAIT");
             // if SeslfTestSyste checkAll() returns false, power off thermometer
-            if(new SelfTestSystem().checkAll() == false) {
+            if(!new SelfTestSystem().checkAll()) {
                 powerOff();
             }
         }
@@ -20,7 +20,7 @@ public class ThermometerState {
 
     public void beginIdle(){
         int c = 0;
-        while(userInput.hasNext() == false && c < 1200){
+        while(!userInput.hasNext() && c < 1200){
             try {
                 Thread.sleep(100);
             } catch (Exception e) {

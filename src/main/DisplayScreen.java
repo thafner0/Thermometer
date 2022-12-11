@@ -4,7 +4,6 @@ public class DisplayScreen {
     private double tempDisplay = 0;
     private int batt = 0;
     public boolean isCelsius = false;
-    private String tempType = "";
 
     public DisplayScreen(double temp) {
         tempDisplay = temp;
@@ -12,7 +11,9 @@ public class DisplayScreen {
     }
 
     public void displayTemp(){
-        if(isCelsius == true){
+        String tempType = "";
+
+        if(isCelsius){
             tempType = "C";
         }else{
             tempType = "F";
