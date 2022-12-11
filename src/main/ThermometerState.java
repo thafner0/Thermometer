@@ -1,5 +1,6 @@
 import java.util.Timer;
 import java.util.TimerTask;
+import java.lang.Thread;
 
 public class ThermometerState {
     private Boolean on = false;
@@ -13,6 +14,14 @@ public class ThermometerState {
             if(SelfTestSystem.checkAll() == false) {
                 powerOff();
             }
+        }
+    }
+
+    public void beginIdle(){
+        int c = 0;
+        while(userInput.hasNext() == false && c < 1200){
+            Thread.sleep(100);
+            c++;
         }
     }
 
