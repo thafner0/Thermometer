@@ -16,30 +16,6 @@ public class ThermometerState {
         }
     }
 
-    // thermometer is on and after 120 seconds of being idle, initiate power off
-    public Boolean isIdle() {
-
-        long currentTime = System.currentTimeMillis();
-        long lastUpdatedTime = TemperatureRead.getTime();
-
-        if (currentTime >= lastUpdatedTime + 120000) {
-            isIdle = true;
-            powerOff();
-            return true;
-        } else {
-            return false;
-        }
-
-//        Timer timer = new Timer();
-//        TimerTask timerTask = new TimerTask() {
-//            public void run() {
-//                powerOff();
-//            }
-//        }
-//
-//        return timerTask.schedule(task, 120000);
-    }
-
     public boolean isOn() {
         return on;
     }
