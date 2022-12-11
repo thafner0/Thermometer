@@ -11,7 +11,7 @@ public class DisplayScreen {
         batt = SelfTestSystem.getBattLevel();
     }
 
-    public void updateScreen(){
+    public void displayTemp(){
         if(isCelsius == true){
             str = "C";
         }else{
