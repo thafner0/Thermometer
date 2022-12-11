@@ -6,7 +6,7 @@ public class TemperatureRead {
         new DisplayScreen ds = DisplayScreen(avgTemp);
     }
 
-    public String errorMessage(double temp) {
+    public void errorMessage(double temp) {
         if (temp < -58 || temp > 122) {
             System.out.println("TMP ERR");
         }
