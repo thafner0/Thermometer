@@ -1,5 +1,5 @@
-import java.util.Timer;
-import java.util.TimerTask;
+package main;
+
 import java.lang.Thread;
 
 public class ThermometerState {
@@ -10,7 +10,7 @@ public class ThermometerState {
         if (isOn() == true) {
             System.out.println("WAIT");
             // if SeslfTestSyste checkAll() returns false, power off thermometer
-            if(SelfTestSystem.checkAll() == false) {
+            if(new SelfTestSystem().checkAll() == false) {
                 powerOff();
             }
         }
@@ -19,7 +19,11 @@ public class ThermometerState {
     public void beginIdle(){
         int c = 0;
         while(userInput.hasNext() == false && c < 1200){
-            Thread.sleep(100);
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+
+            }
             c++;
         }
     }
