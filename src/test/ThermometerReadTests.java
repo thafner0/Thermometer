@@ -11,9 +11,14 @@ import java.util.List;
 public class ThermometerReadTests {
     @Test
     public void testAverage() {
-        var list = new ArrayList<Double>(List.of(10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0));
-        var read = new TemperatureRead();
-        var average = read.calcAvgTemp(list);
-        Assert.assertEquals(50.0, average, 0.5);
+        var averages = new ArrayList<Double>(List.of(97.33, 20.15, 54.513));
+        var dataSets = List.of(Testfixtures.temperatures1, Testfixtures.temperatures2, Testfixtures.temperatures3);
+        Testfixtures.loadData();
+        for (int i = 0; i < dataSets.size(); i++) {
+            var dataSet = dataSets.get(i);
+            var read = new TemperatureRead();
+            var average = read.calcAvgTemp(dataSet);
+            Assert.assertEquals(averages.get(i), average, 0.5);
+        }
     }
 }
