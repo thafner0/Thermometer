@@ -18,14 +18,10 @@ public class ThermometerState {
         }
     }
 
-    public void beginIdle(){
+    public void beginIdle() throws InterruptedException {
         int c = 0;
         while(!userInput.hasNext() && c < 1200){
-            try {
-                Thread.sleep(100);
-            } catch (Exception e) {
-
-            }
+            Thread.sleep(100);
             c++;
         }
     }
