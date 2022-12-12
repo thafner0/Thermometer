@@ -11,8 +11,9 @@ public class ThermometerState {
         // initialize self test system after power is on
         if (isOn()) {
             System.out.println("WAIT");
-            // if SeslfTestSyste checkAll() returns false, power off thermometer
+            // if SelfTestSystem checkAll() returns false, power off thermometer
             if(!new SelfTestSystem().checkAll()) {
+                System.out.println("Self Test Failed - Powering Off");
                 powerOff();
             }
         }
