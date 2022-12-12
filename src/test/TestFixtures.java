@@ -1,7 +1,7 @@
 package test;
 import java.util.ArrayList;
 
-public class Testfixtures {
+public class TestFixtures {
     static ArrayList <Double> temperatures1 = new ArrayList <Double>();
     static ArrayList <Double> temperatures2 = new ArrayList <Double>();
     static ArrayList <Double> temperatures3 = new ArrayList <Double>();

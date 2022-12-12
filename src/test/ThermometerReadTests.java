@@ -1,7 +1,6 @@
 package test;
 
 import main.TemperatureRead;
-import main.ThermoMain;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.*;
@@ -12,8 +11,8 @@ public class ThermometerReadTests {
     @Test
     public void testAverage() {
         var averages = new ArrayList<Double>(List.of(97.33, 20.15, 54.513));
-        var dataSets = List.of(Testfixtures.temperatures1, Testfixtures.temperatures2, Testfixtures.temperatures3);
-        Testfixtures.loadData();
+        var dataSets = List.of(TestFixtures.temperatures1, TestFixtures.temperatures2, TestFixtures.temperatures3);
+        TestFixtures.loadData();
         for (int i = 0; i < dataSets.size(); i++) {
             var dataSet = dataSets.get(i);
             var read = new TemperatureRead();
