@@ -3,14 +3,12 @@ package main;
 import java.util.ArrayList;
 
 public class TemperatureRead {
-    public void calcAvgTemp(ArrayList<Double> temperatures) {
+    public double calcAvgTemp(ArrayList<Double> temperatures) {
         double sum = 0;
         for(int i = 0; i<temperatures.size(); i++){
             sum += temperatures.get(i);
         }
-        double avgTemp = sum/temperatures.size();
-        DisplayScreen ds = new DisplayScreen(avgTemp);
-        ds.displayTemp();
+        return sum/temperatures.size();
     }
 
     public void errorMessage(double temp) {

@@ -27,7 +27,9 @@ public class ThermoMain {
             }
         }
         TemperatureRead tr = new TemperatureRead();
-        tr.calcAvgTemp(temperatures);
+        var average = tr.calcAvgTemp(temperatures);
+        var display = new DisplayScreen(average);
+        display.displayTemp();
     }
 
     //remove these when tests are updated
