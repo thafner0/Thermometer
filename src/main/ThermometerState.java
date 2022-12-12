@@ -1,43 +1,29 @@
-import java.util.Timer;
-import java.util.TimerTask;
+package main;
+
+import java.lang.Thread;
+import java.util.Scanner;
 
 public class ThermometerState {
     private Boolean on = false;
-    private Boolean isIdle = false;
+    private final Scanner userInput = new Scanner(System.in);
 
     public void doSelfTestSystem(){
         // initialize self test system after power is on
-        if (isOn() == true) {
+        if (isOn()) {
             System.out.println("WAIT");
             // if SeslfTestSyste checkAll() returns false, power off thermometer
-            if(SelfTestSystem.checkAll() == false) {
+            if(!new SelfTestSystem().checkAll()) {
                 powerOff();
             }
         }
     }
 
-    // thermometer is on and after 120 seconds of being idle, initiate power off
-    public Boolean isIdle() {
-
-        long currentTime = System.currentTimeMillis();
-        long lastUpdatedTime = TemperatureRead.getTime();
-
-        if (currentTime >= lastUpdatedTime + 120000) {
-            isIdle = true;
-            powerOff();
-            return true;
-        } else {
-            return false;
+    public void beginIdle() throws InterruptedException {
+        int c = 0;
+        while(!userInput.hasNext() && c < 1200){
+            Thread.sleep(100);
+            c++;
         }
-
-//        Timer timer = new Timer();
-//        TimerTask timerTask = new TimerTask() {
-//            public void run() {
-//                powerOff();
-//            }
-//        }
-//
-//        return timerTask.schedule(task, 120000);
     }
 
     public boolean isOn() {

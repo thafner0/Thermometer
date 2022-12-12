@@ -4,7 +4,6 @@
 
 # IntelliJ IDEA config files
 *.xml
-*.iml
 
 # macOS System Files
 .DS_Store
