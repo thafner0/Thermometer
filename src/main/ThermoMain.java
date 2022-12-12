@@ -8,7 +8,7 @@ public class ThermoMain {
         //perform temperature read
         ThermometerState t = new ThermometerState();
         t.powerOn();
-        if(t.isOn() == true){
+        if(t.isOn()){
             SelfTestSystem s = new SelfTestSystem();
             s.checkAll();
         }
