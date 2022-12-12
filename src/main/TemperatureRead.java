@@ -1,9 +1,16 @@
 package main;
 
+import java.util.ArrayList;
+
 public class TemperatureRead {
-    public void calcAvgTemp(double temp1, double temp2, double temp3, double temp4, double temp5, double temp6, double temp7, double temp8, double temp9, double temp10) {
-        double avgTemp = (temp1 + temp2 + temp3 + temp4 + temp5 + temp6 + temp7 + temp8 + temp9 + temp10) / 10;
+    public void calcAvgTemp(ArrayList<Double> temperatures) {
+        double sum = 0;
+        for(int i = 0; i<temperatures.size(); i++){
+            sum += temperatures.get(i);
+        }
+        double avgTemp = sum/temperatures.size();
         DisplayScreen ds = new DisplayScreen(avgTemp);
+        ds.displayTemp();
     }
 
     public void errorMessage(double temp) {

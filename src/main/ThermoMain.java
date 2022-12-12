@@ -1,4 +1,6 @@
 package main;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ThermoMain {
     public static void main(String[] args) {
@@ -8,15 +10,27 @@ public class ThermoMain {
         //perform temperature read
         ThermometerState t = new ThermometerState();
         t.powerOn();
-        if(t.isOn()){
-            SelfTestSystem s = new SelfTestSystem();
-            s.checkAll();
+
+        Scanner sc = new Scanner(System.in);
+        int validInput = 0;
+
+        ArrayList <Double> temperatures = new ArrayList<Double>();
+        while(validInput < 10){
+            double num = 0;
+            System.out.print("Input next temperature (" + (validInput+1) + "/10):");
+            try{
+                num = Double.parseDouble(sc.next());
+                temperatures.add(num);
+                validInput++;
+            } catch (NumberFormatException ignore) {
+                System.out.println("Input must be a double, please try again");
+            }
         }
-        else{
-            System.out.println("The thermometer did not turn on");
-        }
+        TemperatureRead tr = new TemperatureRead();
+        tr.calcAvgTemp(temperatures);
     }
 
+    //remove these when tests are updated
     public static String jokeQuestion() {
         return "A block fell on Isaac Newton's Head. What did he say to his laughing assistant?";
     }
