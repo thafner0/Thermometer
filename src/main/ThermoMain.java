@@ -26,14 +26,9 @@ public class ThermoMain {
             TemperatureRead tr = new TemperatureRead();
             tr.calcAvgTemp(temperatures);
         }
-    }
-
-    //remove these when tests are updated
-    public static String jokeQuestion() {
-        return "A block fell on Isaac Newton's Head. What did he say to his laughing assistant?";
-    }
-
-    public static String jokePunchLine() {
-        return "I don't think you understand the gravity of the situation.";
+        TemperatureRead tr = new TemperatureRead();
+        var average = tr.calcAvgTemp(temperatures);
+        var display = new DisplayScreen(average);
+        display.displayTemp();
     }
 }

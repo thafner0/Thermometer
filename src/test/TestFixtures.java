@@ -1,12 +1,12 @@
 package test;
 import java.util.ArrayList;
 
-public class Testfixtures {
-    private ArrayList <Double> temperatures1 = new ArrayList <Double>();
-    private ArrayList <Double> temperatures2 = new ArrayList <Double>();
-    private ArrayList <Double> temperatures3 = new ArrayList <Double>();
+public class TestFixtures {
+    static ArrayList <Double> temperatures1 = new ArrayList <Double>();
+    static ArrayList <Double> temperatures2 = new ArrayList <Double>();
+    static ArrayList <Double> temperatures3 = new ArrayList <Double>();
 
-    public void loadData(){
+    public static void loadData(){
         temperatures1.add(97.4);
         temperatures1.add(97.5);
         temperatures1.add(97.4);
